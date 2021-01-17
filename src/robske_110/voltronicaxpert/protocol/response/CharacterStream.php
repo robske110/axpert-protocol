@@ -35,7 +35,7 @@ class CharacterStream{
 	 */
 	public function read(int $len = 1): string{
 		$this->pos += $len;
-		return substr($this->data, $this->pos-$bytes, $bytes);
+		return substr($this->data, $this->pos-$len, $len);
 	}
 	
 	public function rawData(): string{

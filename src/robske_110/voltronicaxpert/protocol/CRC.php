@@ -23,11 +23,3 @@ abstract class CRC{
 		return $result;
 	}
 }
-
-function decToHexStr(int $data, $len = 2){
-	return strtoupper(str_pad(substr(dechex($data), -$len), $len, "0", STR_PAD_LEFT));
-}
-
-var_dump(decToHexStr(CRC::crc16("QPI"),4));
-var_dump(bin2hex(pack("n", CRC::crc16("QPI"))));
-var_dump(pack("n", CRC::crc16("QPI")) == hex2bin(decToHexStr(CRC::crc16("QPI"),4)));
