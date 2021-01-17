@@ -10,7 +10,7 @@ class FieldStream{
 	private array $fields;
 	
 	public function __construct(string $data){
-		$this->fields = explode($data, " ");
+		$this->fields = explode(" ", $data);
 	}
 	
 	public function setPos(int $fieldPos){
