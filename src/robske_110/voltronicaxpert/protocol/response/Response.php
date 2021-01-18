@@ -13,6 +13,10 @@ abstract class Response extends CharacterStream{
 	protected static string $responsePrefix = "";
 	
 	public function __construct(string $data){
+		if(($endCharPos = strpos($data, self::END_CHARACTER)) === false){
+			throw new ResponseDecodeError("Could not find END_CHARACTER");
+		}
+		$data = substr($data, 0, $endCharPos+1); //strips NUL bytes off end
 		parent::__construct($data);
 		var_dump(bin2hex($data));
 		if($this->get() !== self::START_CHARACTER){
