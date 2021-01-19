@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace robske_110\voltronicaxpert\protocol;
 
-class SetCommandID{
+abstract class SetCommandID{
 	const DEVICE_FLAG_STATUS = "P";
 	const DEVICE_OUTPUT_FREQUENCY = "F";
 	const DEVICE_OUTPUT_SOURCE_PRIORITY = "POP";

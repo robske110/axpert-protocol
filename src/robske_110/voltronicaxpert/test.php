@@ -24,4 +24,7 @@ var_dump($device->sendCommand(new GetDeviceSerial()));
 var_dump($device->sendCommand(new GetMainCPUfirmware()));
 var_dump($device->sendCommand(new GetOtherCPUfirmware()));
 var_dump($device->sendCommand(new GetDeviceRating()));
+$dFS = $device->sendCommand(new GetDeviceFlagStatus());
+var_dump($dFS);
+$dFS->info();
 #cmds: PEJ
