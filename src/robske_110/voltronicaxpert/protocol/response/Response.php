@@ -39,7 +39,11 @@ abstract class Response extends CharacterStream{
 			throw new ResponseDecodeError("Could not find END_CHARACTER");
 		}
 		
-		$this->decode(new FieldStream($payload));
+		$fieldStream = new FieldStream($payload);
+		$this->decode($fieldStream);
+		if(($remaining = $fieldStream->remaining()) > 0){
+			Logger::notice("Did not read all fields from payload! (remaining: ".$remaining.")");
+		}
 	}
 	
 	abstract protected function decode(FieldStream $dataStream);

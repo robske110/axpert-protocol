@@ -29,6 +29,14 @@ class DeviceGeneralStatusResponse extends Response{
 	public bool $chargingStatus;
 	public bool $sccChargingStatus;
 	public bool $acChargingStatus;
+	//POSSIBLY UNINITIALIZED FIELDS:
+	public int $batteryVoltageOffsetFansOn;
+	public int $eepromVersion;
+	public int $pvChargingPower;
+	
+	public string $deviceStatus2;
+	public bool $chargeFloat;
+	public bool $switchOn;
 	
 	protected function decode(FieldStream $dataStream){
 		$this->gridVoltage = (float) $dataStream->get();
@@ -56,5 +64,15 @@ class DeviceGeneralStatusResponse extends Response{
 		$this->chargingStatus = (bool) $this->deviceStatus1[5];
 		$this->sccChargingStatus = (bool) $this->deviceStatus1[6];
 		$this->acChargingStatus = (bool) $this->deviceStatus1[7];
+		if($dataStream->remaining() == 0){
+			return;
+		}
+		$this->batteryVoltageOffsetFansOn = (int) $dataStream->get();
+		$this->eepromVersion = (int) $dataStream->get();
+		$this->pvChargingPower = (int) $dataStream->get();
+		$this->deviceStatus2 = $dataStream->get();
+		$this->chargeFloat = (bool) $this->deviceStatus2[0];
+		$this->switchOn = (bool) $this->deviceStatus2[1];
+		//last bit reserved
 	}
 }
