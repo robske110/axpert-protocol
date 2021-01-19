@@ -8,7 +8,6 @@ class OtherCPUfirmwareResponse extends Response{
 	public string $firmwareVersion;
 	
 	protected function decode(FieldStream $dataStream){
-		var_dump($dataStream);
 		$this->firmwareVersion = $dataStream->get();
 	}
 }

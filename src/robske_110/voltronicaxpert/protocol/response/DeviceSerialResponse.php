@@ -6,7 +6,6 @@ class DeviceSerialResponse extends Response{
 	public string $deviceSerial;
 	
 	protected function decode(FieldStream $dataStream){
-		var_dump($dataStream);
 		$this->deviceSerial = $dataStream->get();
 	}
 }
