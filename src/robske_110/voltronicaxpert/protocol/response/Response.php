@@ -31,9 +31,14 @@ abstract class Response extends CharacterStream{
 		$payload = $this->read($this->remaining()-3);
 		var_dump($payload);
 		
+		Logger::debug("remaining: ".$this->remaining());
+		var_dump(bin2hex($this->read(3)));
+		$this->skip(-3);
+		
 		$crc = $this->read(2);
-			throw new ResponseDecodeError("Response checksum incorrect");
 		if($crc !== pack("n", CRC::crc16(self::START_CHARACTER.static::$responsePrefix.$payload))){
+			Logger::notice("Response checksum incorrect");
+			#throw new ResponseDecodeError("Response checksum incorrect");
 		}
 		if($this->get() !== self::END_CHARACTER){
 			throw new ResponseDecodeError("Could not find END_CHARACTER");

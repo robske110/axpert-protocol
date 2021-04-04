@@ -8,6 +8,7 @@ use robske_110\voltronicaxpert\protocol\command\GetDeviceGeneralStatus;
 use robske_110\voltronicaxpert\protocol\command\GetDeviceMode;
 use robske_110\voltronicaxpert\protocol\command\GetDeviceRating;
 use robske_110\voltronicaxpert\protocol\command\GetDeviceSerial;
+use robske_110\voltronicaxpert\protocol\command\GetDeviceWarningStatus;
 use robske_110\voltronicaxpert\protocol\command\GetMainCPUfirmware;
 use robske_110\voltronicaxpert\protocol\command\GetOtherCPUfirmware;
 use robske_110\voltronicaxpert\protocol\command\GetProtocolID;
@@ -33,4 +34,5 @@ var_dump($device->sendCommand(new GetDeviceGeneralStatus()));
 $dM = $device->sendCommand(new GetDeviceMode());
 var_dump($dM);
 $dM->info();
+var_dump($device->sendCommand(new GetDeviceWarningStatus()));
 #cmds: PEJ
