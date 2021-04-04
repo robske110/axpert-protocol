@@ -5,6 +5,7 @@ namespace robske_110\voltronicaxpert\protocol;
 abstract class GetCommandID{
 	const DEVICE_PROTOCOL = "QPI";
 	const DEVICE_SERIAL = "QID";
+	const DEVICE_MODEL = "QMD";
 	const MAIN_CPU_FIRMWARE = "QVFW";
 	const OTHER_CPU_FIRMWARE = "QVFW2";
 	const DEVICE_RATING_INFO = "QPIRI";
@@ -18,4 +19,5 @@ abstract class GetCommandID{
 	const DSP_BOOTSTRAP = "QBOOT";
 	const OUTPUT_MODE = "QOPM";
 	const PARALLEL_INFO = "QPGS";
+	//QBEQI (BATTERY_EQUALIZATION_INFO)
 }
