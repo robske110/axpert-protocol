@@ -45,14 +45,8 @@ class DefaultSettingsResponse extends Response{
 	public bool $faultCodeRecordEnabled;
 	public bool $overloadBypassEnabled;
 	public bool $lcdDisplayDefaultPageTimeoutEnabled;
+	/** @var int See OutputMode class for values */
 	public int $outputMode;
-	public const OUTPUT_MODES = [
-		00 => "single machine output",
-		01 => "parallel output",
-		02 => "Phase 1 of 3 Phase output",
-		03 => "Phase 2 of 3 Phase output",
-		04 => "Phase 3 of 3 Phase output"
-	];
 	public float $batteryReDischargeVoltage;
 	public bool $pvOKparallel; //when true all inverters in a parallel system need to have PV for PV OK
 	public bool $pvPowerBalance; //when true PV input power will be limited by charge current limit + current load instead of only charge current

@@ -2,6 +2,8 @@
 declare(strict_types=1);
 namespace robske_110\voltronicaxpert\protocol\response;
 
+use robske_110\Logger\Logger;
+
 class DeviceWarningStatusResponse extends Response{
 	public string $deviceWarningStatus;
 	
@@ -66,10 +68,11 @@ class DeviceWarningStatusResponse extends Response{
 		$this->deviceWarningStatus = $dataStream->get();
 		$inverterFaultBit1 = false;
 		for($i = 0; $i < strlen($this->deviceWarningStatus); ++$i){
-			if(!isset(self::WARNINGS[$i])){
-				//
-			}
 			if(!$this->deviceWarningStatus[$i]){
+				continue;
+			}
+			if(!isset(self::WARNINGS[$i])){
+				Logger::warning("Unknown device warning (ID".$i.") encountered, ignoring.");
 				continue;
 			}
 			
@@ -80,6 +83,7 @@ class DeviceWarningStatusResponse extends Response{
 			$description = self::WARNINGS[$i][0];
 			switch(self::WARNINGS[$i][1]){
 				case self::TYPE_NONE:
+					Logger::warning("Reserved device warning (ID".$i.") encountered, ignoring.");
 					break;
 				case self::TYPE_FAULT:
 					$this->hasFault = true;

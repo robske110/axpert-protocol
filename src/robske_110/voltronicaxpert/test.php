@@ -11,9 +11,13 @@ use robske_110\voltronicaxpert\protocol\command\GetDeviceModel;
 use robske_110\voltronicaxpert\protocol\command\GetDeviceRating;
 use robske_110\voltronicaxpert\protocol\command\GetDeviceSerial;
 use robske_110\voltronicaxpert\protocol\command\GetDeviceWarningStatus;
+use robske_110\voltronicaxpert\protocol\command\GetDSPbootstrap;
 use robske_110\voltronicaxpert\protocol\command\GetMainCPUfirmware;
 use robske_110\voltronicaxpert\protocol\command\GetOtherCPUfirmware;
+use robske_110\voltronicaxpert\protocol\command\GetOutputMode;
 use robske_110\voltronicaxpert\protocol\command\GetProtocolID;
+use robske_110\voltronicaxpert\protocol\command\GetSelectableMaxChargingCurrents;
+use robske_110\voltronicaxpert\protocol\command\GetSelectableMaxUtilityChargingCurrents;
 use robske_110\voltronicaxpert\USBDevice;
 
 require(__DIR__."/../../Autoloader.php");
@@ -39,4 +43,7 @@ var_dump($dM);
 $dM->info();
 var_dump($device->sendCommand(new GetDeviceWarningStatus()));
 var_dump($device->sendCommand(new GetDefaultSettings()));
-#cmds: PEJ
+var_dump($device->sendCommand(new GetSelectableMaxChargingCurrents()));
+var_dump($device->sendCommand(new GetSelectableMaxUtilityChargingCurrents()));
+var_dump($device->sendCommand(new GetOutputMode()));
+var_dump($device->sendCommand(new GetDSPbootstrap()));
