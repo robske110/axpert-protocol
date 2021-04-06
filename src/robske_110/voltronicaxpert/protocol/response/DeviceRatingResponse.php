@@ -28,12 +28,8 @@ class DeviceRatingResponse extends Response{
 		0 => "APPLIANCE",
 		1 => "UPS"
 	];
+	/** @var int See OutputSourcePriority class for values */
 	public int $outputSourcePriority;
-	public const OUTPUT_SOURCE_PRIORITIES = [
-		0 => "Utility first",
-		1 => "Solar first",
-		2 => "SBU first"
-	];
 	public int $chargerSourcePriority;
 	public const CHARGER_SOURCE_PRIORITIES = [
 		0 => "Utility first",
