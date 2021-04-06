@@ -19,5 +19,5 @@ abstract class GetCommandID{
 	const DSP_BOOTSTRAP = "QBOOT";
 	const OUTPUT_MODE = "QOPM";
 	const PARALLEL_INFO = "QPGS";
-	//QBEQI (BATTERY_EQUALIZATION_INFO)
+	const BATTERY_EQUALIZATION_INFO = "QBEQI";
 }

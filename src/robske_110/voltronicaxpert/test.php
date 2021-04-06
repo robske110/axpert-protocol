@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 use robske_110\Logger\Logger;
 use robske_110\voltronicaxpert\Device;
+use robske_110\voltronicaxpert\protocol\command\GetBatteryEqualizationInfo;
 use robske_110\voltronicaxpert\protocol\command\GetDefaultSettings;
 use robske_110\voltronicaxpert\protocol\command\GetDeviceFlagStatus;
 use robske_110\voltronicaxpert\protocol\command\GetDeviceGeneralStatus;
@@ -49,3 +50,4 @@ var_dump($device->sendCommand(new GetSelectableMaxUtilityChargingCurrents()));
 var_dump($device->sendCommand(new GetOutputMode()));
 //var_dump($device->sendCommand(new GetDSPbootstrap()));
 var_dump($device->sendCommand(new GetParallelInfo(0)));
+var_dump($device->sendCommand(new GetBatteryEqualizationInfo));
