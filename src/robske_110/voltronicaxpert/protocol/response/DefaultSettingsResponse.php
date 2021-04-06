@@ -19,13 +19,8 @@ class DefaultSettingsResponse extends Response{
 	];
 	/** @var int See OutputSourcePriority class for values */
 	public int $outputSourcePriority;
+	/** @var int See ChargerSourcePriority class for values */
 	public int $chargerSourcePriority;
-	public const CHARGER_SOURCE_PRIORITIES = [
-		0 => "Utility first",
-		1 => "Solar first",
-		2 => "Solar + Utility",
-		3 => "Only solar charging permitted"
-	];
 	public int $batteryType;
 	public const BATTERY_TYPES = [
 		1 => "AGM",

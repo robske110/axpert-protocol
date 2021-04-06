@@ -30,13 +30,8 @@ class DeviceRatingResponse extends Response{
 	];
 	/** @var int See OutputSourcePriority class for values */
 	public int $outputSourcePriority;
+	/** @var int See ChargerSourcePriority class for values */
 	public int $chargerSourcePriority;
-	public const CHARGER_SOURCE_PRIORITIES = [
-		0 => "Utility first",
-		1 => "Solar first",
-		2 => "Solar + Utility",
-		3 => "Only solar charging permitted"
-	];
 	public int $parallelMaxNum;
 	public int $machineType;
 	public const MACHINE_TYPES = [
