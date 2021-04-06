@@ -6,7 +6,7 @@ use robske_110\voltronicaxpert\protocol\exception\CommandAcknowledgmentError;
 
 class EmptyResponse extends Response{
 	protected function decode(FieldStream $dataStream){
-		if($this->get() !== "ACK"){
+		if($dataStream->get() !== "ACK"){
 			throw new CommandAcknowledgmentError("Inverter did not acknowledge command.");
 		}
 	}
