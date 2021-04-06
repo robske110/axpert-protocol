@@ -12,9 +12,9 @@ class Device{
 	
 	public function sendCommand(Command $command): Response{
 		Logger::log("Encoding command ".$command::$commandID);
-		$command = $command->encode();
-		Logger::debug("Sending ".$command);
-		$this->deviceConnection->send($command);
+		$encodedCommand = $command->encode();
+		Logger::debug("Sending ".$encodedCommand);
+		$this->deviceConnection->send($encodedCommand);
 		Logger::log("Decoding command ".$command::$commandID."...");
 		return $command->decode($this->deviceConnection->readUntil());
 	}
