@@ -12,11 +12,8 @@ class DefaultSettingsResponse extends Response{
 	public float $batteryBulkVoltage;
 	public float $batteryReChargeVoltage;
 	public int $maxChargingCurrent;
+	/** @var int See InputVoltageRange class for values */
 	public int $inputVoltageRange;
-	public const INPUT_VOLTAGE_RANGES = [
-		0 => "APPLIANCE",
-		1 => "UPS"
-	];
 	/** @var int See OutputSourcePriority class for values */
 	public int $outputSourcePriority;
 	/** @var int See ChargerSourcePriority class for values */

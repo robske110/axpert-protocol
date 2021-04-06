@@ -23,11 +23,8 @@ class DeviceRatingResponse extends Response{
 	];
 	public int $currentMaxACchargingCurrent;
 	public int $currentMaxChargingCurrent;
+	/** @var int See InputVoltageRange class for values */
 	public int $inputVoltageRange;
-	public const INPUT_VOLTAGE_RANGES = [
-		0 => "APPLIANCE",
-		1 => "UPS"
-	];
 	/** @var int See OutputSourcePriority class for values */
 	public int $outputSourcePriority;
 	/** @var int See ChargerSourcePriority class for values */
