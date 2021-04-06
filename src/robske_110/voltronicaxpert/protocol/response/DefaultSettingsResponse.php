@@ -18,12 +18,8 @@ class DefaultSettingsResponse extends Response{
 	public int $outputSourcePriority;
 	/** @var int See ChargerSourcePriority class for values */
 	public int $chargerSourcePriority;
+	/** @var int See BatteryType class for values */
 	public int $batteryType;
-	public const BATTERY_TYPES = [
-		1 => "AGM",
-		2 => "FLOODED",
-		3 => "USER"
-	];
 	public bool $buzzerEnabled;
 	public bool $powerSavingEnabled;
 	public bool $overloadRestartEnabled;

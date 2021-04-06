@@ -15,12 +15,8 @@ class DeviceRatingResponse extends Response{
 	public float $batteryUnderVoltage;
 	public float $batteryBulkVoltage;
 	public float $batteryFloatVoltage;
+	/** @var int See BatteryType class for values */
 	public int $batteryType;
-	public const BATTERY_TYPES = [
-		1 => "AGM",
-		2 => "FLOODED",
-		3 => "USER"
-	];
 	public int $currentMaxACchargingCurrent;
 	public int $currentMaxChargingCurrent;
 	/** @var int See InputVoltageRange class for values */
