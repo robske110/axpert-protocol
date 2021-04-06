@@ -65,6 +65,6 @@ class DeviceRatingResponse extends Response{
 		$this->batteryReDischargeVoltage = (float) $dataStream->get();
 		$this->pvOKparallel = (bool) $dataStream->get();
 		$this->pvPowerBalance = (bool) $dataStream->get();
-		//undocumented field. observed values: 120 (possibly solar/mppt voltage?)
+		$dataStream->get(); //undocumented field. observed values: 120 (possibly solar/mppt voltage?)
 	}
 }
