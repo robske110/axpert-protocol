@@ -4,6 +4,7 @@ namespace robske_110\voltronicaxpert\protocol;
 
 abstract class SetCommandID{
 	const DEVICE_FLAG_STATUS = "P";
+	const CONTROL_PARAMETERS_RESET = "PF";
 	const DEVICE_OUTPUT_FREQUENCY = "F";
 	const DEVICE_OUTPUT_SOURCE_PRIORITY = "POP";
 	const BATTERY_RECHARGE_VOLTAGE = "PBCV";
