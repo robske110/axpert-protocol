@@ -20,6 +20,8 @@ use robske_110\voltronicaxpert\protocol\command\GetParallelInfo;
 use robske_110\voltronicaxpert\protocol\command\GetProtocolID;
 use robske_110\voltronicaxpert\protocol\command\GetSelectableMaxChargingCurrents;
 use robske_110\voltronicaxpert\protocol\command\GetSelectableMaxUtilityChargingCurrents;
+use robske_110\voltronicaxpert\protocol\command\SetDeviceFlagStatus;
+use robske_110\voltronicaxpert\protocol\DeviceFlag;
 use robske_110\voltronicaxpert\USBDevice;
 
 require(__DIR__."/../../Autoloader.php");
@@ -29,6 +31,21 @@ $pipSerial = new USBDevice("/dev/hidraw0");
 $pipSerial->open();
 $device = new Device($pipSerial);
 $start = microtime(true);
+
+$dFS = $device->sendCommand(new GetDeviceFlagStatus());
+var_dump($dFS);
+$dFS->info();
+
+$device->sendCommand(
+	new SetDeviceFlagStatus([DeviceFlag::POWER_SAVING_FLAG], false)
+);
+
+$dFS = $device->sendCommand(new GetDeviceFlagStatus());
+var_dump($dFS);
+$dFS->info();
+
+
+
 var_dump($device->sendCommand(new GetProtocolID()));
 Logger::log("Took ".(microtime(true)-$start)."s");
 var_dump($device->sendCommand(new GetDeviceSerial()));

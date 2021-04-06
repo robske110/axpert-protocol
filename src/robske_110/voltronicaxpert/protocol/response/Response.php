@@ -4,6 +4,7 @@ namespace robske_110\voltronicaxpert\protocol\response;
 
 use robske_110\Logger\Logger;
 use robske_110\voltronicaxpert\protocol\CRC;
+use robske_110\voltronicaxpert\protocol\exception\CommandAcknowledgmentError;
 use robske_110\voltronicaxpert\protocol\exception\ResponseDecodeError;
 
 abstract class Response extends CharacterStream{
@@ -31,7 +32,7 @@ abstract class Response extends CharacterStream{
 		$payload = $this->read($this->remaining()-3);
 		if($payload == "N"){
 			if($this->read(2) == "AK"){
-				throw new ResponseDecodeError("NAK received");
+				throw new CommandAcknowledgmentError("NAK received");
 			}
 			$this->skip(-2);
 		}

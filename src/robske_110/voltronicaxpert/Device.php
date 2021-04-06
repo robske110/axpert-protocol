@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace robske_110\voltronicaxpert;
 
+use robske_110\Logger\Logger;
 use robske_110\voltronicaxpert\protocol\command\Command;
 use robske_110\voltronicaxpert\protocol\response\Response;
 
@@ -10,7 +11,11 @@ class Device{
 	}
 	
 	public function sendCommand(Command $command): Response{
-		$this->deviceConnection->send($command->encode());
+		Logger::log("Encoding command ".$command::$commandID);
+		$command = $command->encode();
+		Logger::debug("Sending ".$command);
+		$this->deviceConnection->send($command);
+		Logger::log("Decoding command ".$command::$commandID."...");
 		return $command->decode($this->deviceConnection->readUntil());
 	}
 	
