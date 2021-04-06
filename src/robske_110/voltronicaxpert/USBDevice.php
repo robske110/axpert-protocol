@@ -57,7 +57,7 @@ class USBDevice implements DeviceConnection{
 		stream_set_blocking($this->stream, false);
 	}
 	
-	public function readUntil(string $until = "\r", int $maxReads = 500){
+	public function readUntil(string $until = "\r", int $maxReads = 2000){
 		$str = "";
 		for($i = 0; $i < $maxReads; ++$i){
 			usleep(1000);
