@@ -29,6 +29,12 @@ abstract class Response extends CharacterStream{
 		}
 		
 		$payload = $this->read($this->remaining()-3);
+		if($payload == "N"){
+			if($this->read(2) == "AK"){
+				throw new ResponseDecodeError("NAK received");
+			}
+			$this->skip(-2);
+		}
 		var_dump($payload);
 		
 		Logger::debug("remaining: ".$this->remaining());
