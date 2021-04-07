@@ -10,6 +10,6 @@ class SetBatteryCVvoltage extends SetCommand{
 	public function __construct(public float $batteryCVvoltage){}
 	
 	protected function encodePayload(): string{
-		return (string) round($this->batteryCVvoltage, 1);
+		return sprintf("%04.1f", $this->batteryCVvoltage);
 	}
 }

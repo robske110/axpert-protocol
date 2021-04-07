@@ -10,6 +10,6 @@ class SetBatteryCutOffVoltage extends SetCommand{
 	public function __construct(public float $batteryUnderVoltage){}
 	
 	protected function encodePayload(): string{
-		return (string) round($this->batteryUnderVoltage, 1);
+		return sprintf("%04.1f", $this->batteryUnderVoltage);
 	}
 }
