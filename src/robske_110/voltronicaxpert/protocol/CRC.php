@@ -20,6 +20,14 @@ abstract class CRC{
 				$result &= 0xFFFF;
 			}
 		}
+		$low = ($result & 0x00FF);
+		if($low === 0x0a || $low === 0x28 || $low === 0x0d){
+			$result += 1;
+		}
+		$high = ($result >> 8);
+		if($high === 0x0a || $high === 0x28 || $high === 0x0d){
+			$result += 2**8;
+		}
 		return $result;
 	}
 }
