@@ -24,7 +24,7 @@ use robske_110\voltronicaxpert\protocol\command\SetDeviceFlagStatus;
 use robske_110\voltronicaxpert\protocol\DeviceFlag;
 use robske_110\voltronicaxpert\USBDevice;
 
-require(__DIR__."/../../Autoloader.php");
+require(dirname(__FILE__, 4)."/vendor/autoload.php");
 Logger::init();
 
 $pipSerial = new USBDevice("/dev/hidraw0");
