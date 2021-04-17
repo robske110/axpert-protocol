@@ -4,15 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b47eebe45d15f0bdcf0ffa1dc111623c",
-    "packages": [],
+    "content-hash": "875dc0587241d3175c5d500ed6731051",
+    "packages": [
+        {
+            "name": "robske110/logger",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/robske110/Logger.git",
+                "reference": "7cf5f1a45a843b5f40e11d43fa5a41efc75908bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/robske110/Logger/zipball/7cf5f1a45a843b5f40e11d43fa5a41efc75908bd",
+                "reference": "7cf5f1a45a843b5f40e11d43fa5a41efc75908bd",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "robske_110\\Logger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Simple echo & file-based logger",
+            "support": {
+                "issues": "https://github.com/robske110/Logger/issues",
+                "source": "https://github.com/robske110/Logger/tree/0.1.0"
+            },
+            "time": "2021-04-17T19:43:17+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^8.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }

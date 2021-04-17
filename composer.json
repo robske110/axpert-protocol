@@ -2,12 +2,12 @@
   "name": "robske110/axpert-protocol",
   "description": "Protocol implementation for volctronic axpert solar inverters.",
   "require": {
-    "php": "^8.0"
+    "php": "^8.0",
+    "robske110/logger": "^0.1.0"
   },
   "autoload": {
     "psr-4": {
-      "robske_110\\voltronicaxpert\\": "src/robske_110/voltronicaxpert",
-      "robske_110\\Logger\\": "src/robske_110/Logger"
+      "robske_110\\voltronicaxpert\\": "src/robske_110/voltronicaxpert"
     }
   }
 }
